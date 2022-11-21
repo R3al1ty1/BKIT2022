@@ -1,7 +1,7 @@
 def print_result(function):
     def wrapper(*args, **kwargs):
-        finRes = function(*args, **kwargs)
-        print(function.__name__)
+        finRes = function(*args, **kwargs) #вызываем функцию
+        print(function.__name__) #выводим имя функции
         if type(finRes) == list:
             for i in finRes:
                 print(i)

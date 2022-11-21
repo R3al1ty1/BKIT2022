@@ -1,20 +1,19 @@
 def field(items, *args):
-
-    assert len(args) > 0
-    if len(args) == 1:
-        for dict in items:
-            curr = dict.get(args[0])
-            if curr is not None:
-                yield curr
+    assert len(args) > 0 #аргументы должны быть
+    if len(args) == 1: #длина кортежа равна 1
+        for dct in items:
+            curr = dct.get(args[0]) #получаем значение по ключу
+            if curr is not None: #если значение не None
+                yield curr #возвращаем значение
     else:
         for elem in items:
-            dict = dict()
+            dct = dict()
             for arg in args:
                 curr = elem.get(arg)
                 if curr is not None:
-                    dict[arg] = curr
-            if len(dict) != 0:
-                yield dict
+                    dct[arg] = curr
+            if len(dct) != 0:
+                yield dct
 
 if __name__ == '__main__':
     goods = [

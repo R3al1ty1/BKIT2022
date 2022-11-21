@@ -1,22 +1,22 @@
 class Unique(object):
-    def __init__(self, items, **kwargs):
+    def __init__(self, items, **kwargs): #принимает список и ключевые аргументы
         self.ignore_case = False
         self.encountered = set()
         self.elems = items
         if len(kwargs) > 0:
             self.ignore_case = kwargs['ignore_case']
 
-    def __next__(self):
-        it = iter(self.elems)
+    def __next__(self): #возвращает следующий элемент
+        it = iter(self.elems) #итератор по списку
         while True:
             try:
-                curr = next(it)
+                curr = next(it) #получаем следующий элемент
             except:
-                raise StopIteration
+                raise StopIteration #если элементов больше нет, то останавливаем итерацию
             else:
                 if self.ignore_case == True and type(curr) == str:
                     curr = curr.lower()
-                if curr not in self.encountered:
+                if curr not in self.encountered: #если элемента еще нет в множестве
                     self.encountered.add(curr)
                     return curr
 
